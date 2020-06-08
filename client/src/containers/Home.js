@@ -9,6 +9,9 @@ function Home(props) {
         <li>
           <Link to="/">Home</Link>
         </li>
+        <li>
+          <Link to="/styling">Styling</Link>
+        </li>
       </ol>
     </div>
   );

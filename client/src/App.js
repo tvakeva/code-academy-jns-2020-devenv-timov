@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./containers/Home";
+import StylingSamples from "./containers/StylingSamples/StylingSamples";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/styling">
+            <StylingSamples />
           </Route>
         </Switch>
       </Router>
