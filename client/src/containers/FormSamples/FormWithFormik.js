@@ -7,6 +7,7 @@ import {
   FaRegAddressCard,
   FaUniversity,
 } from "react-icons/fa";
+import AutoSuggestInput from "../../components/AutoSuggestInput";
 
 function FormWithFormik(props) {
   const onSubmit = (formData, { setSubmitting }) => {
@@ -75,10 +76,16 @@ function FormWithFormik(props) {
                       <FaUniversity /> City
                     </Label>
                     <Field
-                      as={Input}
+                      as={AutoSuggestInput}
                       type="text"
                       name="city"
-                      placeholder="Joensuu"
+                      placeholder="Type a city"
+                      suggestions={[
+                        "Joensuu",
+                        "Helsinki",
+                        "Lahti",
+                        "Jyväskylä",
+                      ]}
                     />
                   </FormGroup>
                 </Col>

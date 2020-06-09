@@ -6,6 +6,7 @@ import {
   FaRegAddressCard,
   FaUniversity,
 } from "react-icons/fa";
+import AutoSuggestInput from "../../components/AutoSuggestInput";
 
 function FormWithHooks(props) {
   const [formData, setFormData] = useState({ cardType: "visa" });
@@ -67,10 +68,10 @@ function FormWithHooks(props) {
                 <Label for="city">
                   <FaUniversity /> City
                 </Label>
-                <Input
-                  type="text"
+                <AutoSuggestInput
+                  suggestions={["Joensuu", "Helsinki", "Lahti", "Jyväskylä"]}
                   name="city"
-                  placeholder="Joensuu"
+                  placeholder="Type a city"
                   value={formData.city || ""}
                   onChange={onChange}
                 />
