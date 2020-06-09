@@ -16,7 +16,7 @@ function StylingSamples(props) {
         }}
       >
         <h2>sample</h2>
-        <img src={SampleImage} width="100%" />
+        <img alt="Sample" src={SampleImage} width="100%" />
       </div>
       <div
         style={{
