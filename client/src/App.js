@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./containers/Home";
 import StylingSamples from "./containers/StylingSamples/StylingSamples";
+import FormSamples from "./containers/FormSamples/FormSamples";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           </Route>
           <Route path="/styling">
             <StylingSamples />
+          </Route>
+          <Route path="/forms">
+            <FormSamples />
           </Route>
         </Switch>
       </Router>
