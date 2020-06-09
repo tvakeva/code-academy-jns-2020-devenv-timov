@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Autosuggest from "react-autosuggest";
+import { Input } from "reactstrap";
+
+import "./AutoSuggestInput.css";
 
 const getSuggestionValue = (suggestion) => suggestion;
 
@@ -32,6 +35,12 @@ const AutoSuggestInput = (props) => {
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       inputProps={inputProps}
+      renderInputComponent={(inputProps) => <Input {...inputProps} />}
+      onSuggestionSelected={(event, { suggestionValue }) => {
+        event.target.name = props.name;
+        event.target.value = suggestionValue;
+        props.onChange(event);
+      }}
     />
   );
 };
