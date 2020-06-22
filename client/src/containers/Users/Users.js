@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import DataTable from "../../components/DataTable";
 import { FaTrash } from "react-icons/fa";
+import AddUserModal from "./AddUserModal";
 
 const Users = (props) => {
   const [users, setUsers] = useState([]);
@@ -53,6 +54,7 @@ const Users = (props) => {
   return (
     <div>
       <h3>Users</h3>
+      <AddUserModal />
       <DataTable columns={columns} data={users} />
     </div>
   );
