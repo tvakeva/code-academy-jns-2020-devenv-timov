@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import DataTable from "../../components/DataTable";
+import { FaTrash } from "react-icons/fa";
 
 const Users = (props) => {
   const [users, setUsers] = useState([]);
@@ -7,6 +8,22 @@ const Users = (props) => {
     fetch("http://localhost:3001/users")
       .then((response) => response.json())
       .then((data) => setUsers(data));
+  }, []);
+
+  const onDelete = useCallback((userToRemove) => {
+    fetch(`http://localhost:3001/users/${userToRemove.id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.log("Failed to remove", userToRemove);
+        } else {
+          setUsers((users) =>
+            users.filter((user) => user.id !== userToRemove.id)
+          );
+        }
+      })
+      .catch((error) => console.error(error));
   }, []);
 
   const columns = useMemo(
@@ -23,8 +40,14 @@ const Users = (props) => {
         Header: "Sähköposti",
         accessor: "email",
       },
+      {
+        Header: "Toiminnot",
+        accessor: (originalRow, rowIndex) => {
+          return <FaTrash onClick={() => onDelete(originalRow)} />;
+        },
+      },
     ],
-    []
+    [onDelete]
   );
 
   return (
