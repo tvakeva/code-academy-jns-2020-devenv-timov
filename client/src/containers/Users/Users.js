@@ -8,26 +8,10 @@ import { connect } from "react-redux";
 import * as userActions from "./userAction";
 
 const Users = (props) => {
-  const { getUsers, users } = props;
-  useEffect(() => {
-    getUsers();
-  }, [getUsers]);
+  const { getUsers, removeUser, users } = props;
 
-  const onDelete = useCallback((userToRemove) => {
-    fetch(`http://localhost:3001/users/${userToRemove.id}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          console.log("Failed to remove", userToRemove);
-        } else {
-          /*setUsers((users) =>
-            users.filter((user) => user.id !== userToRemove.id)
-          );*/
-        }
-      })
-      .catch((error) => console.error(error));
-  }, []);
+  useEffect(() => getUsers(), [getUsers]);
+  const onDelete = useCallback((user) => removeUser(user.id), [removeUser]);
 
   const columns = useMemo(
     () => [
@@ -45,7 +29,7 @@ const Users = (props) => {
       },
       {
         Header: "Toiminnot",
-        accessor: (originalRow, rowIndex) => {
+        accessor: (originalRow) => {
           return <FaTrash onClick={() => onDelete(originalRow)} />;
         },
       },
@@ -63,11 +47,10 @@ const Users = (props) => {
 };
 
 Users.displayName = "Users";
+
 export default connect(
-  (store) => {
-    return {
-      users: store.userStore.users,
-    };
-  },
+  (store) => ({
+    users: store.userStore.users,
+  }),
   (dispatch) => bindActionCreators(userActions, dispatch)
 )(Users);

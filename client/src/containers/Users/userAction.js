@@ -4,3 +4,12 @@ export function getUsers() {
     payload: fetch("/api/users").then((response) => response.json()),
   };
 }
+
+export function removeUser(userId) {
+  return {
+    type: "REMOVE_USER",
+    payload: fetch(`/api/users/${userId}`, {
+      method: "DELETE",
+    }).then(() => ({ userId })),
+  };
+}
