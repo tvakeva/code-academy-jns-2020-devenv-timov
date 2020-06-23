@@ -13,3 +13,16 @@ export function removeUser(userId) {
     }).then(() => ({ userId })),
   };
 }
+
+export function addUser(user) {
+  return {
+    type: "ADD_USER",
+    payload: fetch(`/api/users`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then((response) => response.json()),
+  };
+}

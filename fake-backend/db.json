@@ -17,6 +17,24 @@
       "email": "matti@example.com",
       "password": "matti",
       "id": 3
+    },
+    {
+      "name": "Martti",
+      "email": "martti@example.com",
+      "password": "martti",
+      "id": 4
+    },
+    {
+      "name": "Maija",
+      "email": "maija@example.com",
+      "password": "maija",
+      "id": 5
+    },
+    {
+      "name": "Marko",
+      "email": "marko@example.com",
+      "password": "marko",
+      "id": 6
     }
   ]
 }

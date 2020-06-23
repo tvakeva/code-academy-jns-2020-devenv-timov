@@ -10,11 +10,20 @@ import {
   Label,
   Input,
 } from "reactstrap";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+
+import * as userActions from "./userAction";
 
 const AddUserModal = (props) => {
+  const { addUser } = props;
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+
+  const onSubmitForm = (formData) => {
+    addUser(formData).then(() => toggle());
+  };
 
   return (
     <div>
@@ -22,8 +31,8 @@ const AddUserModal = (props) => {
         Add new User
       </Button>
       <Modal isOpen={modal}>
-        <Formik initialValues={{}}>
-          {({ isSubmitting }) => (
+        <Formik initialValues={{}} onSubmit={onSubmitForm}>
+          {({ isSubmitting, submitForm }) => (
             <React.Fragment>
               <ModalHeader toggle={toggle}>Add new user</ModalHeader>
               <ModalBody>
@@ -55,7 +64,7 @@ const AddUserModal = (props) => {
               <ModalFooter>
                 <Button
                   color="primary"
-                  onClick={toggle}
+                  onClick={() => submitForm()}
                   disabled={isSubmitting}
                 >
                   Save
@@ -73,4 +82,6 @@ const AddUserModal = (props) => {
 };
 
 AddUserModal.displayName = "AddUserModal";
-export default AddUserModal;
+export default connect(null, (dispatch) =>
+  bindActionCreators(userActions, dispatch)
+)(AddUserModal);
