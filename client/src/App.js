@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./containers/Home";
 import StylingSamples from "./containers/StylingSamples/StylingSamples";
 import FormSamples from "./containers/FormSamples/FormSamples";
-import Users from "./containers/Users/Users";
+import Users from "./containers/Users";
 
 function App() {
   return (
