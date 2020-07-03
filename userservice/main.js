@@ -6,7 +6,12 @@ const {
   createFruit,
 } = require("./fruits/FruitController");
 
-const { createUser, readUsers, deleteUser } = require("./users/UserController");
+const {
+  createUser,
+  readUsers,
+  deleteUser,
+  loginUser,
+} = require("./users/UserController");
 
 const app = express();
 const port = 3000;
@@ -38,6 +43,7 @@ app.get("/redFruits", readRedFruits);
 app.post("/users", createUser);
 app.get("/users", readUsers);
 app.delete("/users/:userId", deleteUser);
+app.post("/login", loginUser);
 
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
