@@ -8,7 +8,7 @@ function userReducer(store = initialState, action) {
     case "REMOVE_USER_FULFILLED":
       return {
         ...store,
-        users: store.users.filter((user) => user.id !== action.payload.userId),
+        users: store.users.filter((user) => user._id !== action.payload.userId),
       };
     case "ADD_USER_FULFILLED":
       return { ...store, users: [...store.users, action.payload] };

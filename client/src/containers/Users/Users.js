@@ -10,14 +10,16 @@ import * as userActions from "./userAction";
 const Users = (props) => {
   const { getUsers, removeUser, users } = props;
 
-  useEffect(() => getUsers(), [getUsers]);
-  const onDelete = useCallback((user) => removeUser(user.id), [removeUser]);
+  useEffect(() => {
+    getUsers();
+  }, [getUsers]);
+  const onDelete = useCallback((user) => removeUser(user._id), [removeUser]);
 
   const columns = useMemo(
     () => [
       {
         Header: "#",
-        accessor: "id",
+        accessor: "_id",
       },
       {
         Header: "Nimi",
