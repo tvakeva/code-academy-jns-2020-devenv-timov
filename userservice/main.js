@@ -1,6 +1,12 @@
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 
+const {
+  readFruits,
+  readRedFruits,
+  createFruit,
+} = require("./fruits/FruitController");
+
 const app = express();
 const port = 3000;
 const mongoDbUrl = "mongodb://root:example@mongo:27017/";
@@ -25,32 +31,9 @@ app.get("/heartbeat", (req, res) => {
   `);
 });
 
-app.get("/fruits", (req, res) => {
-  MongoClient.connect(mongoDbUrl, (err, dbconn) => {
-    if (err) throw err;
-    const dbo = dbconn.db("test");
-    const collection = dbo.collection("fruits");
-    collection.find({}).toArray((err, result) => {
-      if (err) throw err;
-      res.json(result);
-      dbconn.close();
-    });
-  });
-});
-
-app.post("/fruits", (req, res) => {
-  const newFruit = req.body;
-  MongoClient.connect(mongoDbUrl, (err, dbconn) => {
-    if (err) throw err;
-    const dbo = dbconn.db("test");
-    const collection = dbo.collection("fruits");
-    collection.insertOne(newFruit, (err, dbRes) => {
-      if (err) throw err;
-      res.json(dbRes.ops[0]);
-      dbconn.close();
-    });
-  });
-});
+app.post("/fruits", createFruit);
+app.get("/fruits", readFruits);
+app.get("/redFruits", readRedFruits);
 
 app.get("/users", (req, res) => {
   MongoClient.connect(mongoDbUrl, (err, dbconn) => {
