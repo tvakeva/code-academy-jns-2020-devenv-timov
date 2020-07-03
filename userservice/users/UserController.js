@@ -4,7 +4,10 @@ const bcrypt = require("bcryptjs");
 const createUser = (req, res) => {
   const newUser = req.body;
   const hash = bcrypt.hashSync(newUser.password);
-  addUser({ ...newUser, password: hash }, (addedUser) => res.json(addedUser));
+  addUser({ ...newUser, password: hash }, (addedUser) => {
+    const { password, ...safeUser } = addedUser;
+    res.json(safeUser);
+  });
 };
 
 const readUsers = (req, res) => {
