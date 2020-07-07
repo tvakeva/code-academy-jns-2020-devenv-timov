@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 
 const {
   readFruits,
@@ -17,6 +18,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(cookieParser("HYVIN_PITKÄ_JA_HANKALASTI_ARVATTAVA_AVAIN"));
 
 app.get("/hello", (req, res) => res.send("Hello World!!!"));
 
@@ -44,6 +46,8 @@ app.post("/users", createUser);
 app.get("/users", readUsers);
 app.delete("/users/:userId", deleteUser);
 app.post("/login", loginUser);
+
+app.get("/getSession", (req, res) => res.send(req.signedCookies.loginStatus));
 
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
