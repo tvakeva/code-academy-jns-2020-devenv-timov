@@ -1,4 +1,7 @@
-package com.example.demo;
+package com.example.controllers;
+
+import com.example.models.Book;
+import com.example.repositories.BookRepository;
 
 import java.util.List;
 
