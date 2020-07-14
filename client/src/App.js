@@ -6,6 +6,7 @@ import StylingSamples from "./containers/StylingSamples/StylingSamples";
 import FormSamples from "./containers/FormSamples/FormSamples";
 import Users from "./containers/Users";
 import GraphsSamples from "./containers/GraphsSamples/GraphsSamples";
+import Books from "./containers/Books";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/users">
             <Users />
+          </Route>
+          <Route path="/books">
+            <Books />
           </Route>
           <Route path="/graphs">
             <GraphsSamples />
