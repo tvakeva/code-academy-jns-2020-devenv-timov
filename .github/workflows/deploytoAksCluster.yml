@@ -61,4 +61,3 @@ jobs:
           codeacademy2020containerregistry.azurecr.io/codeacademy2020cluster:${{ github.sha }}
         imagepullsecrets: |
           codeacademy2dockerauth
-          
