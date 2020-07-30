@@ -13,10 +13,10 @@ jobs:
     - name: Create ACR
       id: create-acr
       run: |
-        az acr create -n CodeAcademy2020Register -g CodeAcademy2020Register894c-rg --location "East US" --sku Standard --admin-enabled
-        echo "::set-output name=acr_username::`az acr credential show -n CodeAcademy2020Register --query username | xargs`"
-        echo "::set-output name=acr_password::`az acr credential show -n CodeAcademy2020Register --query passwords[0].value | xargs`"
-        echo "::add-mask::`az acr credential show -n CodeAcademy2020Register --query passwords[0].value | xargs`"
+        az acr create -n CodeAcademy2020RegisterTV -g CodeAcademy2020Register894c-rg --location "East US" --sku Standard --admin-enabled
+        echo "::set-output name=acr_username::`az acr credential show -n CodeAcademy2020RegisterTV --query username | xargs`"
+        echo "::set-output name=acr_password::`az acr credential show -n CodeAcademy2020RegisterTV --query passwords[0].value | xargs`"
+        echo "::add-mask::`az acr credential show -n CodeAcademy2020RegisterTV --query passwords[0].value | xargs`"
 
     - uses: azure/docker-login@v1
       with:
