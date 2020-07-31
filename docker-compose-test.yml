@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  userservice:
+    build: ./userservice
+    environment:
+      MONGO_HOST: mongo
+      MONGO_USER: root
+      MONGO_PASS: example
+    ports:
+      - 3001:3000
+  fashionservice:
+    build: ./fashionservice
+    ports:
+      - 8000:8000
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
