@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "codeacademy2020cluster-cd7f"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "codeacademy2020cluster-cd7f"
+    spec:
+      containers:
+        - name: "codeacademy2020cluster-cd7f"
+          image: "codeacademy2020containerregistry.azurecr.io/codeacademy2020cluster"
+          ports:
+          - containerPort: 8000
