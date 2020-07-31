@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: "codeacademy2020cluster-be43"
-          image: "codeacademy2020registerantti.azurecr.io/codeacademy2020cluster"
+          image: "codeacademy2020registerantti.azurecr.io/codeacademy2020userservice"
           env:
             - name: MONGO_HOST
               value: "codeacademy2020mongo"
