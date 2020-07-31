@@ -48,5 +48,6 @@ jobs:
             manifests/service.yml
           images: |
             codeacademy2020registerantti.azurecr.io/codeacademy2020userservice:${{ github.sha }}
+            codeacademy2020registerantti.azurecr.io/codeacademy2020fashionservice:${{ github.sha }}
           imagepullsecrets: |
             codeacademy2dockerauth

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "codeacademy2020cluster-be43"
+  name: "codeacademy2020userservice"
   labels:
-    app: "codeacademy2020cluster-be43"
+    app: "codeacademy2020userservice"
 spec:
   type: LoadBalancer
   ports:
@@ -12,7 +12,7 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: "codeacademy2020cluster-be43"
+    app: "codeacademy2020userservice"
 ---
 apiVersion: v1
 kind: Service
@@ -26,3 +26,19 @@ spec:
       name: mongo
   selector:
     app: "codeacademy2020mongo"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "codeacademy2020fashionservice"
+  labels:
+    app: "codeacademy2020fashionservice"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8000
+      targetPort: 8000
+      protocol: TCP
+      name: http
+  selector:
+    app: "codeacademy2020fashionservice"
