@@ -7,6 +7,7 @@ import FormSamples from "./containers/FormSamples/FormSamples";
 import Users from "./containers/Users";
 import GraphsSamples from "./containers/GraphsSamples/GraphsSamples";
 import Books from "./containers/Books";
+import LoginModal from "./containers/LoginModal/LoginModal";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <LoginModal />
     </div>
   );
 }

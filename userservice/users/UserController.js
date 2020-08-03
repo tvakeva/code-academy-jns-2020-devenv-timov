@@ -61,10 +61,31 @@ const loginUser = (req, res) => {
     { email } // Sama kuin {email: email}
   );
 };
+const logoutUser = (req, res) => {
+  res.cookie("loginStatus", undefined);
+  res.end();
+};
 
 module.exports = {
   createUser,
   readUsers,
   deleteUser,
   loginUser,
+  logoutUser,
 };
+
+// HACK: Add admin if we don't have users
+setTimeout(() => {
+  getUsers((users) => {
+    if (users.length === 0) {
+      addUser(
+        {
+          name: "ADMIN",
+          email: "admin@example.com",
+          password: bcrypt.hashSync("1234"),
+        },
+        () => {}
+      );
+    }
+  });
+}, 10000);

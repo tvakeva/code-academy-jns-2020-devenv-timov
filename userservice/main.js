@@ -12,6 +12,7 @@ const {
   readUsers,
   deleteUser,
   loginUser,
+  logoutUser,
 } = require("./users/UserController");
 
 const app = express();
@@ -46,8 +47,13 @@ app.post("/users", createUser);
 app.get("/users", readUsers);
 app.delete("/users/:userId", deleteUser);
 app.post("/login", loginUser);
+app.post("/logout", logoutUser);
 
-app.get("/getSession", (req, res) => res.send(req.signedCookies.loginStatus));
+app.get("/getSession", (req, res) =>
+  res
+    .status(req.signedCookies.loginStatus ? 200 : 401)
+    .send(req.signedCookies.loginStatus)
+);
 
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)

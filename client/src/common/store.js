@@ -4,9 +4,11 @@ import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
 import loader from "./reducers/loaderReducer";
+import session from "./reducers/sessionReducer";
 
 const reducers = {
   loader,
+  session,
 };
 
 const logger = createLogger({
