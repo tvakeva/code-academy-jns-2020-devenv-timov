@@ -91,7 +91,7 @@ spec:
             - name: POSTGRES_USER
               value: "postgres"
             - name: POSTGRES_PASS
-              value: "password"
+              value: "P4ssw0rd$"
             - name: POSTGRES_HOST
               value: "codeacademy2020postgrestimo.postgres.database.azure.com"
             - name: POSTGRES_PORT
