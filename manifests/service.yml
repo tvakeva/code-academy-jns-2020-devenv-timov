@@ -5,7 +5,6 @@ metadata:
   labels:
     app: "codeacademy2020userservice"
 spec:
-  type: LoadBalancer
   ports:
     - port: 3000
       targetPort: 3000
@@ -34,7 +33,6 @@ metadata:
   labels:
     app: "codeacademy2020fashionservice"
 spec:
-  type: LoadBalancer
   ports:
     - port: 8000
       targetPort: 8000
@@ -50,7 +48,6 @@ metadata:
   labels:
     app: "codeacademy2020libraryservice"
 spec:
-  type: LoadBalancer
   ports:
     - port: 8080
       targetPort: 8080
@@ -58,3 +55,19 @@ spec:
       name: http
   selector:
     app: "codeacademy2020libraryservice"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "codeacademy2020client"
+  labels:
+    app: "codeacademy2020client"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app: "codeacademy2020client"

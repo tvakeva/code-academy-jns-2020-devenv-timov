@@ -1,0 +1,3 @@
+server: http://client
+browser: Chrome
+delay: 0.5

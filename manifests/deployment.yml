@@ -125,3 +125,23 @@ spec:
               value: "library"
           ports:
             - containerPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "codeacademy2020client"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "codeacademy2020client"
+  template:
+    metadata:
+      labels:
+        app: "codeacademy2020client"
+    spec:
+      containers:
+        - name: "codeacademy2020client"
+          image: "codeacademy2020containerregistry.azurecr.io/codeacademy2020client"
+          ports:
+            - containerPort: 80

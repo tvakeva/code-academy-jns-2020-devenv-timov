@@ -1,0 +1,10 @@
+#Requirements for robot tests to run
+robotframework
+robotframework-pabot
+robotframework-seleniumlibrary
+robotframework-selenium2library
+robotframework-xvfb
+PyYAML
+robotframework-react
+selenium
+urllib3

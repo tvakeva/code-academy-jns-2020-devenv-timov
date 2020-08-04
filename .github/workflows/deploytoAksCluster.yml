@@ -17,10 +17,12 @@ jobs:
         docker build "$GITHUB_WORKSPACE/userservice" -f  "userservice/Dockerfile" -t codeacademy2020containerregistry.azurecr.io/codeacademy2020userservice:${{ github.sha }}
         docker build "$GITHUB_WORKSPACE/fashionservice" -f  "fashionservice/Dockerfile" -t codeacademy2020containerregistry.azurecr.io/codeacademy2020fashionservice:${{ github.sha }}
         docker build "$GITHUB_WORKSPACE/libraryservice" -f  "libraryservice/Dockerfile" -t codeacademy2020containerregistry.azurecr.io/codeacademy2020libraryservice:${{ github.sha }}
+        docker build "$GITHUB_WORKSPACE/client" -f  "client/Dockerfile" -t codeacademy2020containerregistry.azurecr.io/codeacademy2020client:${{ github.sha }}
         docker push codeacademy2020containerregistry.azurecr.io/codeacademy2020userservice:${{ github.sha }}
         docker push codeacademy2020containerregistry.azurecr.io/codeacademy2020fashionservice:${{ github.sha }}
         docker push codeacademy2020containerregistry.azurecr.io/codeacademy2020libraryservice:${{ github.sha }}
-    
+        docker push codeacademy2020containerregistry.azurecr.io/codeacademy2020client:${{ github.sha }}
+
     - uses: azure/k8s-set-context@v1
       with:
          kubeconfig: ${{ secrets.aks_codeacademy2020cluster_kubeConfig }}
@@ -52,6 +54,6 @@ jobs:
           codeacademy2020containerregistry.azurecr.io/codeacademy2020userservice:${{ github.sha }}
           codeacademy2020containerregistry.azurecr.io/codeacademy2020fashionservice:${{ github.sha }}
           codeacademy2020containerregistry.azurecr.io/codeacademy2020libraryservice:${{ github.sha }}
-
+          codeacademy2020containerregistry.azurecr.io/codeacademy2020client:${{ github.sha }}
         imagepullsecrets: |
           codeacademy2dockerauth

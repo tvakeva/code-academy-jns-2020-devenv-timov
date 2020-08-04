@@ -52,3 +52,8 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: library
+  robottests:
+    build: ./robotTests
+    volumes:
+      - ./robotTests:/robotframework/tests
+      - ./robotTests/reports:/robotframework/logs

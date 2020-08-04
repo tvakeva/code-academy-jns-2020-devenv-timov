@@ -29,8 +29,12 @@ const LoginModal = function (props) {
   };
   return (
     <React.Fragment>
-      {userId && <Button onClick={() => logout()}>Logout</Button>}
-      <Modal isOpen={!userId}>
+      {userId && (
+        <Button className="button-logout-main" onClick={() => logout()}>
+          Logout
+        </Button>
+      )}
+      <Modal id="modal-login-main" isOpen={!userId}>
         <Formik initialValues={{ email: "", password: "" }} onSubmit={onSubmit}>
           {({ isSubmitting, submitForm }) => (
             <React.Fragment>
