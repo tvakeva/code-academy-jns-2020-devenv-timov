@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "codeacademy2020cluster-041d"
+    labels:
+        app: "codeacademy2020cluster-041d"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: codeacademy2020clustera22c-codeacademy2020cluster-041d.caee045fd07a4af48b9c.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "codeacademy2020cluster-041d"
+                servicePort: 8000
