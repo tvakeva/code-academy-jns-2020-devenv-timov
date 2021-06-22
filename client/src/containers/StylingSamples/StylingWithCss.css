@@ -1,7 +1,8 @@
 #StylingWithCss label {
   width: 100%;
 }
-#StylingWithCss label ~ * {
+#StylingWithCss input,
+#StylingWithCss select {
   width: 100%;
   padding: 6px 12px;
 }
@@ -9,13 +10,10 @@
   display: flex;
   margin: 0 -15px;
 }
-.sectionContainer > div {
+.section {
   padding: 0 15px;
   flex: 1;
 }
-.section > div {
+.inputGroup {
   margin-bottom: 16px;
-}
-[for="address"] {
-  font-weight: 700;
 }
