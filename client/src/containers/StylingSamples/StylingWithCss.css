@@ -1,0 +1,21 @@
+#StylingWithCss label {
+  width: 100%;
+}
+#StylingWithCss label ~ * {
+  width: 100%;
+  padding: 6px 12px;
+}
+.sectionContainer {
+  display: flex;
+  margin: 0 -15px;
+}
+.sectionContainer > div {
+  padding: 0 15px;
+  flex: 1;
+}
+.section > div {
+  margin-bottom: 16px;
+}
+[for="address"] {
+  font-weight: 700;
+}
