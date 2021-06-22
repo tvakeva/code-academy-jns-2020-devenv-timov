@@ -1,5 +1,11 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, Row, Col } from "reactstrap";
+import {
+  FaUser,
+  FaEnvelope,
+  FaRegAddressCard,
+  FaUniversity,
+} from "react-icons/fa";
 
 function StylingWithBootsrap(props) {
   return (
@@ -8,11 +14,15 @@ function StylingWithBootsrap(props) {
         <Col>
           <h3>Billing Address</h3>
           <FormGroup>
-            <Label for="fullname">Full Name</Label>
+            <Label for="fullname">
+              <FaUser /> Full Name
+            </Label>
             <Input type="text" name="fullname" placeholder="Maisa Mallikas" />
           </FormGroup>
           <FormGroup>
-            <Label for="email">Email</Label>
+            <Label for="email">
+              <FaEnvelope /> Email
+            </Label>
             <Input
               type="text"
               name="email"
@@ -20,13 +30,17 @@ function StylingWithBootsrap(props) {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="address">Address</Label>
+            <Label for="address">
+              <FaRegAddressCard /> Address
+            </Label>
             <Input type="text" name="address" placeholder="Länsikatu 15" />
           </FormGroup>
           <Row>
             <Col>
               <FormGroup>
-                <Label for="city">City</Label>
+                <Label for="city">
+                  <FaUniversity /> City
+                </Label>
                 <Input type="text" name="city" placeholder="Joensuu" />
               </FormGroup>
             </Col>
